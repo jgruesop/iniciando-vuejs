@@ -9,15 +9,17 @@
 <body>    
     <!-- Sintaxis inicial de VueJs -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <div id="app">{{ text }}</div>
+    <div id="app"></div>
     <script>
         const vm = Vue.createApp({
             data() {
                 return {
-                    text: "Hola, VueJs"
+                    text: "Hola, VueJs manejando las directivas de texto",
+                    img: "https://i.blogs.es/78408e/programador/1366_2000.jpeg"
                 };
             },
-            template: `<div v-once v-text="text"></div>`
+            template: `<div v-once v-text="text"></div> 
+                       <img v-bind:src="img" v-bind:alt="img"/>`
         }).mount("#app");
         console.log(vm);
     </script>
