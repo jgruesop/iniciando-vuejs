@@ -15,8 +15,9 @@
             data() {
                 return {
                     text: "Hola, VueJs"
-                }
-            }
+                };
+            },
+            template: `<div v-once v-text="text"></div>`
         }).mount("#app");
         console.log(vm);
     </script>
