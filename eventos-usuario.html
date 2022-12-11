@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos Usuario</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <div id="app"></div>
+    <script>
+        const vueMain = Vue.createApp({
+            data() {
+                return {
+                    counter: 0,
+                    counter1: 0,
+                    counter2: 0
+                };
+            },
+            methods:{
+                increment() { //Incrementa escuchando el mouse utilizando v-on:click.
+                    this.counter++;                    
+                },
+                increment2() { //Incrementa escuchando las teclas, utilizando v-on:keyup.
+                    this.counter1++;
+                },
+                submit() {
+                    //e.preventDefault();
+                    this.counter2++;
+                }
+            },
+            template: `<button v-on:click="increment">{{ counter }}</button><br>
+                       <button v-on:keyup="increment2">{{ counter1 }}</button>
+                       <form v-on:submit.prevent="submit">
+                        <button>{{ counter2 }}</button>
+                       </form>`
+        }).mount("#app");
+        console.log(vueMain)
+    </script>
+</body>
+</html>
